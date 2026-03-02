@@ -1,95 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>HitchedUp4Life</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f9f9f9;
-  color: #222;
-  line-height: 1.6;
-}
-
-header {
-  text-align: center;
-  padding: 60px 20px;
-  background: white;
-}
-
-h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-p {
-  max-width: 700px;
-  margin: 0 auto 20px auto;
-}
-
-.section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.button {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 10px;
-  background: #e15a0f;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-}
-
-.button.secondary {
-  background: transparent;
-  border: 2px solid #e15a0f;
-  color: #e15a0f;
-}
-
-.socials a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #2f6b3b;
-  font-weight: 600;
-}
-
-.newsletter input {
-  padding: 12px;
-  width: 250px;
-  border-radius: 30px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
-}
-
-.newsletter button {
-  padding: 12px 20px;
-  border-radius: 30px;
-  border: none;
-  background: #2f6b3b;
-  color: white;
-  font-weight: 600;
-}
-
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  background: white;
-  margin-top: 60px;
-  font-size: 14px;
-}
+  body { margin:0; font-family:'Poppins',sans-serif; background:#f9f9f9; color:#222; line-height:1.6; }
+  header { text-align:center; padding:60px 20px; background:white; }
+  h1 { font-size:42px; margin:0 0 10px; }
+  h2 { font-size:28px; margin:0 0 15px; }
+  p { max-width:720px; margin:0 auto 18px; }
+  .section { padding:60px 20px; text-align:center; }
+  .button {
+    display:inline-block; padding:12px 24px; margin:10px;
+    background:#e15a0f; color:white; text-decoration:none; border-radius:30px; font-weight:600;
+  }
+  .button.secondary { background:transparent; border:2px solid #e15a0f; color:#e15a0f; }
+  .socials { margin-top:26px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+  .socials a {
+    display:inline-block; padding:10px 16px;
+    text-decoration:none; color:#2f6b3b; font-weight:600;
+    background:#ffffff; border:1px solid #e6e6e6; border-radius:999px;
+  }
+  .socials a:hover { background:#f3f7f3; }
+  .newsletter form { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
+  .newsletter input {
+    padding:12px 14px; width:280px; border-radius:30px; border:1px solid #ccc; outline:none;
+  }
+  .newsletter button {
+    padding:12px 20px; border-radius:30px; border:none; background:#2f6b3b; color:white; font-weight:600;
+  }
+  footer { text-align:center; padding:40px 20px; background:white; margin-top:60px; font-size:14px; }
+  footer a { color:#2f6b3b; text-decoration:none; font-weight:600; }
+  footer a:hover { text-decoration:underline; }
 </style>
 </head>
 
@@ -102,21 +48,18 @@ footer {
   <a href="blog.html" class="button">Read Our Adventures</a>
   <a href="contact.html" class="button secondary">Get in Touch</a>
 
-  <div class="socials" style="margin-top:30px;">
-    <a href="https://youtube.com/" target="_blank">YouTube</a>
-    <a href="https://facebook.com/" target="_blank">Facebook</a>
-    <a href="https://instagram.com/" target="_blank">Instagram</a>
+  <div class="socials" aria-label="Social links">
+    <a href="https://www.youtube.com/@HitchedUp4Life" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.facebook.com/people/HitchedUp4Life/61578180429478/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/hitchedup4life/" target="_blank" rel="noopener">Instagram</a>
   </div>
 </header>
 
 <section class="section">
   <h2>Hi, We’re the Family Behind HitchedUp4Life</h2>
   <p>HitchedUp4Life started as a way to capture our life as a family — the road trips, the trail hikes, the late-night projects, and the quiet in-between moments that mean the most.</p>
-
   <p>We believe family life isn’t about perfection. It’s about being present. It’s about building things together, exploring new places, learning as we go, and choosing connection over chaos.</p>
-
   <p>This space is where we share our adventures, the lessons we’re learning, and the memories we’re making along the way.</p>
-
   <p>We’re so glad you’re here.</p>
 </section>
 
@@ -132,24 +75,32 @@ footer {
   <p>Join our email list to get new stories, updates, and behind-the-scenes moments delivered straight to your inbox.</p>
 
   <div class="newsletter">
+    <!-- IMPORTANT:
+         Replace the action URL with your real Formspree (or Mailchimp/ConvertKit) form URL.
+         Example: https://formspree.io/f/abcdwxyz
+    -->
     <form action="https://formspree.io/f/YOURCODE" method="POST">
       <input type="email" name="email" placeholder="Enter your email" required>
       <button type="submit">Join the Family</button>
     </form>
+    <p style="font-size:13px; color:#555; margin-top:10px;">
+      No spam. Just family updates.
+    </p>
   </div>
 </section>
 
 <section class="section" style="background:white;">
   <h2>Shop Our Creations</h2>
   <p>We’ve poured our heart into the pieces we create. If you’d like to support our journey, visit our Etsy shop below.</p>
-  <a href="https://www.etsy.com/shop/HitchedUp4Life?dd_referrer=https%3A%2F%2Fduckduckgo.com%2F" target="_blank" class="button">
+  <a href="https://www.etsy.com/shop/HitchedUp4Life?dd_referrer=https%3A%2F%2Fduckduckgo.com%2F"
+     target="_blank" rel="noopener" class="button">
     Visit Our Etsy Store
   </a>
 </section>
 
 <footer>
-  © 2026 HitchedUp4Life <br><br>
-  <a href="mailto:youremail@example.com">Email Us</a>
+  © 2026 HitchedUp4Life<br><br>
+  <a href="mailto:TheFam@HItchedUp4LIfe.com">TheFam@HItchedUp4LIfe.com</a>
 </footer>
 
 </body>
