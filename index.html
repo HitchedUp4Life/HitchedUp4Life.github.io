@@ -1,40 +1,529 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HitchedUp4Life</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="HitchedUp4Life — Our Life. Our Adventures. Hitched Up Together." />
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+  <title>HitchedUp4Life</title>
 
-<style>
-:root{
-  --orange:#e15a0f;
-  --orange2:#ff7a2f;
-  --green:#2f6b3b;
-  --ink:#101318;
-  --muted:#5b6678;
-  --bg:#f6f7fb;
-  --panel:#ffffff;
-  --border:#e7eaf2;
-  --radius:18px;
-  --shadow: 0 8px 26px rgba(16,24,40,.10);
-  --maxw:1100px;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:"Nunito", sans-serif;
-  color:var(--ink);
-  background:
-    radial-gradient(900px 500px at 15% 10%, rgba(255,122,47,.18), transparent 60%),
-    radial-gradient(700px 420px at 85% 15%, rgba(47,107,59,.16), transparent 60%),
-    var(--bg);
-}
+  <style>
+    :root{
+      --bg: #F6F1E8;         /* warm cream */
+      --text: #1E1E1E;       /* charcoal */
+      --muted: #5b5b5b;
 
-.wrap{max-width:var(--maxw);margin:auto;padding:22px;}
+      --orange: #F47C20;     /* primary */
+      --orange-dark: #B5521D;
 
+      --teal: #2E8C8A;       /* accent */
+      --green: #2F6F4E;
+
+      --card: rgba(255,255,255,0.75);
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 12px 30px rgba(0,0,0,0.10);
+      --radius: 18px;
+      --max: 1040px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background: radial-gradient(1200px 500px at 50% -150px, rgba(244,124,32,0.12), transparent 60%),
+                  radial-gradient(900px 400px at 90% 10%, rgba(46,140,138,0.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.5;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 64px; }
+
+    /* Top bar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(246,241,232,0.72);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:10px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+    .brand img{
+      width:44px;
+      height:44px;
+      object-fit:contain;
+      border-radius:12px;
+    }
+    .brand strong{
+      font-weight:800;
+      letter-spacing:0.2px;
+    }
+
+    .nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      padding:8px 10px;
+      border-radius:12px;
+      color: rgba(0,0,0,0.78);
+      font-weight:600;
+      font-size:14px;
+    }
+    .nav a:hover{ background: rgba(0,0,0,0.04); }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight:800;
+      letter-spacing:0.3px;
+      cursor:pointer;
+      transition: transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-primary{
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 10px 22px rgba(244,124,32,0.30);
+    }
+    .btn-primary:hover{ background: #ea721a; }
+    .btn-teal{
+      background: var(--teal);
+      color: white;
+      box-shadow: 0 10px 22px rgba(46,140,138,0.25);
+    }
+    .btn-teal:hover{ background: #277d7b; }
+    .btn-ghost{
+      background: rgba(255,255,255,0.55);
+      border-color: var(--border);
+      color: rgba(0,0,0,0.85);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,0.75); }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items:center;
+    }
+    .logo-big{
+      width: 130px;
+      height:auto;
+      display:block;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 16px 22px rgba(0,0,0,0.14));
+    }
+    h1{
+      font-family: "Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height:1.05;
+      margin: 10px 0 12px;
+      letter-spacing:-0.6px;
+    }
+    .subline{
+      font-size: 16px;
+      color: rgba(0,0,0,0.68);
+      max-width: 46ch;
+    }
+    .hero-art{
+      width:100%;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.35);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .hero-art img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+    }
+    .section h2{
+      margin: 0 0 8px;
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      letter-spacing:-0.3px;
+    }
+    .section p{ margin: 0; color: rgba(0,0,0,0.70); }
+
+    /* Follow Along */
+    .follow{
+      text-align:center;
+    }
+    .socials{
+      margin-top: 14px;
+      display:flex;
+      justify-content:center;
+      gap: 16px;
+      flex-wrap:wrap;
+    }
+    .social{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      min-width: 90px;
+    }
+    .icon{
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+      transition: transform .08s ease, box-shadow .2s ease;
+    }
+    .icon:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 14px 24px rgba(0,0,0,0.12);
+    }
+    .social span{
+      font-weight:700;
+      font-size: 13px;
+      color: rgba(0,0,0,0.75);
+    }
+    .follow-cta{
+      margin-top: 16px;
+    }
+
+    /* Meet + Newsletter */
+    .meet-grid{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      align-items:center;
+    }
+    .family{
+      width: 160px;
+      height: 160px;
+      border-radius: 999px;
+      border: 6px solid rgba(244,124,32,0.90);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+      background:white;
+      object-fit:cover;
+    }
+    .meet-copy h3{
+      margin:0 0 6px;
+      font-family:"Playfair Display", serif;
+      font-size: 28px;
+    }
+    .meet-copy p{ margin:0; }
+
+    .newsletter{
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.70);
+    }
+    .newsletter h4{
+      margin:0 0 6px;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+    .newsletter .small{
+      color: rgba(0,0,0,0.68);
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .form-row{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    input[type="email"], input[type="text"], textarea{
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.92);
+      padding: 12px 14px;
+      font-size: 15px;
+      outline:none;
+      flex: 1 1 260px;
+      min-width: 220px;
+    }
+
+    .status{
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(0,0,0,0.72);
+      display:none;
+    }
+    .status.show{ display:block; }
+
+    /* Send Message */
+    .message{
+      text-align:center;
+    }
+    .message p{
+      max-width: 66ch;
+      margin: 0 auto;
+      color: rgba(0,0,0,0.72);
+    }
+    .message .msg-cta{
+      margin-top: 14px;
+    }
+    .email-line{
+      margin-top: 10px;
+      font-weight: 700;
+      color: rgba(0,0,0,0.72);
+    }
+    .email-line a{
+      color: rgba(46,140,138,1);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      color: rgba(0,0,0,0.55);
+      font-size: 13px;
+      padding: 10px 0 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-art{ order: -1; }
+      .brand strong{ display:none; }
+      .meet-grid{ grid-template-columns: 1fr; text-align:center; }
+      .family{ margin: 0 auto; }
+      .meet-copy{ text-align:center; }
+      .form-row{ justify-content:center; }
+      input[type="email"]{ flex: 1 1 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img src="assets/logo.png" alt="HitchedUp4Life logo" />
+        <strong>HitchedUp4Life</strong>
+      </div>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#follow">Follow</a>
+        <a href="#merch">Merch</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#message">Message</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div>
+          <img class="logo-big" src="assets/logo.png" alt="HitchedUp4Life" />
+
+          <h1>Our Life. Our Adventures.<br> <span style="color:var(--orange-dark); font-family:Inter,system-ui,sans-serif; font-weight:900;">Hitched Up Together.</span></h1>
+
+          <p class="subline">
+            We’re the roadschooling family sharing real, everyday life on the road. From epic road trip moments to creative, hands-on learning — we’re hitched up for whatever comes our way.
+          </p>
+        </div>
+
+        <div class="hero-art" aria-label="Truck and trailer illustration">
+          <img src="assets/rig.png" alt="Truck and fifth wheel illustration" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FOLLOW -->
+    <section class="section follow" id="follow">
+      <h2>Follow Along</h2>
+      <p>Join us on social media for more adventures and updates.</p>
+
+      <div class="socials" role="list">
+        <a class="social" role="listitem" href="https://www.youtube.com/@HitchedUp4Life" target="_blank" rel="noopener">
+          <div class="icon" aria-label="YouTube">
+            <!-- simple play icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M10 8.6v6.8L16 12l-6-3.4Z" fill="#E11D48"/>
+              <rect x="2.8" y="6.5" width="18.4" height="11" rx="3" stroke="rgba(0,0,0,.35)"/>
+            </svg>
+          </div>
+          <span>YouTube</span>
+        </a>
+
+        <a class="social" role="listitem" href="https://www.instagram.com/hitchedup4life/" target="_blank" rel="noopener">
+          <div class="icon" aria-label="Instagram">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="5" y="5" width="14" height="14" rx="4" stroke="rgba(0,0,0,.35)"/>
+              <circle cx="12" cy="12" r="3.2" stroke="rgba(0,0,0,.35)"/>
+              <circle cx="16.7" cy="7.3" r="0.9" fill="rgba(0,0,0,.35)"/>
+            </svg>
+          </div>
+          <span>Instagram</span>
+        </a>
+
+        <a class="social" role="listitem" href="https://www.facebook.com/people/HitchedUp4Life/61578180429478/" target="_blank" rel="noopener">
+          <div class="icon" aria-label="Facebook">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 8.5h2V6h-2.2C11.7 6 11 7.2 11 8.9V11H9v2.5h2V18h2.8v-4.5h2.1L16.4 11h-2.6V9.3c0-.5.2-.8.6-.8Z" fill="rgba(0,0,0,.55)"/>
+            </svg>
+          </div>
+          <span>Facebook</span>
+        </a>
+      </div>
+
+      <div class="follow-cta" id="merch">
+        <a class="btn btn-primary" href="https://www.etsy.com/shop/HitchedUp4Life?dd_referrer=https%3A%2F%2Fduckduckgo.com%2F" target="_blank" rel="noopener">
+          SHOP OUR MERCH →
+        </a>
+      </div>
+    </section>
+
+    <!-- MEET + NEWSLETTER -->
+    <section class="section" id="newsletter">
+      <div class="meet-grid">
+        <img class="family" src="assets/family.png" alt="HitchedUp4Life family portrait" />
+
+        <div class="meet-copy">
+          <h3>Meet the Fam</h3>
+          <p>
+            We’re Blake, Tera, Barrett, Mikenna, and Kimber — a traveling family hitting the road to learn, create, and explore together. Thanks for riding along with us!
+          </p>
+
+          <div class="newsletter" aria-label="Newsletter signup">
+            <h4>Stay Hitched Up With Us</h4>
+            <div class="small">Real life from the road. New adventures. Family updates. No spam.</div>
+
+            <!-- Newsletter Form (Formspree) -->
+            <form id="newsletterForm" action="https://formspree.io/f/xjgeqwao" method="POST">
+              <!-- Helps you identify the submission type in Formspree -->
+              <input type="hidden" name="submission_type" value="newsletter" />
+              <div class="form-row">
+                <input type="email" name="email" placeholder="Enter your email..." required />
+                <button class="btn btn-teal" type="submit">STAY HITCHED UP →</button>
+              </div>
+              <div id="newsletterStatus" class="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEND MESSAGE -->
+    <section class="section message" id="message">
+      <h2>Send Us a Message</h2>
+      <p>
+        Have a local restaurant we should try? Know a fun campground? Want to share your story or just say hi? We’d love to hear from you.
+      </p>
+
+      <div class="msg-cta">
+        <a class="btn btn-primary" href="mailto:TheFam@HItchedUp4LIfe.com?subject=HitchedUp4Life%20-%20Hello!">
+          SEND US A MESSAGE →
+        </a>
+      </div>
+
+      <div class="email-line">
+        Or email us directly at
+        <a href="mailto:TheFam@HItchedUp4LIfe.com">TheFam@HItchedUp4Life.com</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> HitchedUp4Life • All rights reserved
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Optional: AJAX submit for newsletter (prevents Formspree redirect)
+    const form = document.getElementById("newsletterForm");
+    const statusEl = document.getElementById("newsletterStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.classList.remove("show");
+      statusEl.textContent = "";
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          form.reset();
+          statusEl.textContent = "You’re on the list. Welcome aboard 😄";
+          statusEl.classList.add("show");
+        } else {
+          statusEl.textContent = "Hmm… something didn’t go through. Try again or email us directly.";
+          statusEl.classList.add("show");
+        }
+      } catch (err) {
+        statusEl.textContent = "No signal? Same. Try again when you’ve got bars — or email us directly.";
+        statusEl.classList.add("show");
+      }
+    });
+  </script>
+</body>
+</html>
 h1{font-size:42px;margin-bottom:10px;}
 h2{font-size:28px;margin-bottom:12px;}
 p{color:var(--muted);}
