@@ -123,6 +123,26 @@
       border-color: rgba(74, 38, 14, 0.28);
     }
 
+    /* subtle brand tint on hover */
+    .link-card.youtube:hover { background: rgba(255,0,0,0.06); }
+    .link-card.instagram:hover { background: rgba(214,36,159,0.06); }
+    .link-card.facebook:hover { background: rgba(24,119,242,0.06); }
+
+    .link-card:hover p {
+      color: var(--brown);
+    }
+
+    .link-card:hover .social-icon {
+      transform: scale(1.1);
+      transition: 0.2s ease;
+    }
+
+    /* press/click effect */
+    .link-card:active {
+      transform: translateY(-2px) scale(0.98);
+      box-shadow: 0 10px 20px rgba(74, 38, 14, 0.18);
+    }
+
     .link-card:hover p {
       color: var(--brown);
     }
@@ -238,8 +258,21 @@
     </div>
 
     <div class="links-section">
-      <a href="https://www.youtube.com/@HitchedUp4Life" class="link-card" target="_blank">
+      <a href="https://www.youtube.com/@HitchedUp4Life" class="link-card youtube" target="_blank">
         <div class="social-icon youtube-icon">▶</div>
+        <p>Watch the drives, campground stops, full travel days, and real behind-the-scenes family life on the road.</p>
+      </a>
+
+      <a href="https://www.instagram.com/hitchedup4life/" class="link-card instagram" target="_blank">
+        <div class="social-icon instagram-icon">◎</div>
+        <p>Quick snapshots, reels, and the everyday moments that don’t always make it into full videos.</p>
+      </a>
+
+      <a href="https://www.facebook.com/people/HitchedUp4Life/61578180429478/" class="link-card facebook" target="_blank">
+        <div class="social-icon facebook-icon">f</div>
+        <p>Follow along with daily updates, stories, lessons learned, and the community side of our journey.</p>
+      </a>
+    </div>
         <p>Watch the drives, campground stops, full travel days, and real behind-the-scenes family life on the road.</p>
       </a>
 
