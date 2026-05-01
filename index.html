@@ -1,228 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HitchedUp4Life</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HitchedUp4Life</title>
+  <meta name="description" content="Follow HitchedUp4Life for full-time RV travel, roadschooling, family adventures, and real life from the road." />
 
-<style>
-:root {
-  --cream:#fff4df;
-  --paper:#fffaf0;
-  --orange:#e68616;
-  --teal:#198f8a;
-  --brown:#4a260e;
-  --dark:#18212b;
-  --muted:#6d5b4f;
-}
+  <style>
+    :root {
+      --cream: #fff4df;
+      --paper: #fffaf0;
+      --orange: #e68616;
+      --teal: #198f8a;
+      --brown: #4a260e;
+      --dark: #18212b;
+      --muted: #6d5b4f;
+      --line: rgba(74, 38, 14, 0.16);
+      --shadow: 0 22px 60px rgba(74, 38, 14, 0.16);
+    }
 
-body {
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--cream);
-  color:var(--dark);
-}
+    * { box-sizing: border-box; }
 
-.wrap {
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+    }
 
-.topbar {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    .wrap {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+      padding: 24px 0 40px;
+    }
 
-.brand-logo {
-  width:220px;
-}
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
 
-.email-pill {
-  border:2px solid var(--brown);
-  padding:8px 12px;
-  border-radius:999px;
-  font-weight:bold;
-  color:var(--brown);
-}
+    .brand-logo { width: 240px; }
 
-.hero {
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  margin-top:20px;
-}
+    .email-pill {
+      border: 2px solid var(--brown);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      color: var(--brown);
+      font-size: 0.9rem;
+    }
 
-.hero-copy {
-  flex:1;
-}
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
 
-.family-badge {
-  width:80px;
-  border-radius:50%;
-  margin-bottom:10px;
-}
+    .family-badge {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
 
-h1 {
-  font-size:2.5rem;
-  margin:0;
-  color:var(--brown);
-}
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      color: var(--brown);
+    }
 
-.hero-copy p {
-  color:var(--muted);
-}
+    .hero p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 12px;
+    }
 
-.rig-img {
-  flex:1;
-  max-width:500px;
-  width:100%;
-}
+    .rig-img {
+      width: 100%;
+      max-width: 520px;
+      justify-self: center;
+    }
 
-/* SOCIAL CARDS */
+    .links-section {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
 
-.links-section {
-  display:flex;
-  gap:15px;
-  margin-top:30px;
-  flex-wrap:wrap;
-}
+    .link-card {
+      background: var(--paper);
+      border: 2px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(74, 38, 14, 0.08);
+      transition: 0.2s;
+    }
 
-.link-card {
-  flex:1;
-  min-width:220px;
-  background:var(--paper);
-  border-radius:16px;
-  padding:20px;
-  text-align:center;
-  border-top:6px solid;
-  transition:0.2s;
-}
+    .link-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(74, 38, 14, 0.14);
+    }
 
-.link-card:hover {
-  transform:translateY(-4px);
-}
+    .social-icon {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 12px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-/* ICON BLOCKS */
+    .youtube-icon { background: #ff0000; }
+    .instagram-icon { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .facebook-icon { background: #1877f2; }
 
-.icon {
-  width:60px;
-  height:60px;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:28px;
-  font-weight:bold;
-  margin:0 auto 10px;
-}
+    .link-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
 
-.youtube { border-color:#ff0000; }
-.youtube .icon { background:#ff0000; }
+    .about {
+      margin-top: 35px;
+      background: var(--paper);
+      border: 2px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
 
-.instagram { border-color:#d6249f; }
-.instagram .icon {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
+    .about h2 {
+      margin: 0 0 10px;
+      color: var(--brown);
+    }
 
-.facebook { border-color:#1877f2; }
-.facebook .icon { background:#1877f2; }
+    .about p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
 
-/* NEWSLETTER */
+    .newsletter {
+      margin-top: 30px;
+      background: var(--dark);
+      color: white;
+      border-radius: 24px;
+      padding: 26px;
+    }
 
-.newsletter {
-  margin-top:40px;
-  background:var(--dark);
-  color:white;
-  padding:25px;
-  border-radius:16px;
-}
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+    }
 
-input {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:8px;
-  border:none;
-}
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      background: var(--orange);
+      color: white;
+      font-weight: bold;
+    }
 
-button {
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:8px;
-  border:none;
-  background:var(--orange);
-  color:white;
-  font-weight:bold;
-}
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: var(--muted);
+    }
 
-footer {
-  text-align:center;
-  margin-top:30px;
-  color:var(--muted);
-}
-</style>
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .links-section { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
-<div class="wrap">
+  <div class="wrap">
 
-<div class="topbar">
-  <img src="logo.png" class="brand-logo">
-  <div class="email-pill">TheFam@HitchedUp4Life.com</div>
-</div>
+    <div class="topbar">
+      <img src="logo.png" class="brand-logo">
+      <div class="email-pill">TheFam@HitchedUp4Life.com</div>
+    </div>
 
-<div class="hero">
-  <div class="hero-copy">
-    <img src="family.jpg" class="family-badge">
-    <h1>Real life from the road.</h1>
-    <p>We’re roadschooling across America — sharing the parks, the food, the fixes, and the real moments.</p>
+    <div class="hero">
+      <div>
+        <img src="family.jpg" class="family-badge">
+        <h1>Real life from the road.</h1>
+        <p>
+          We’re roadschooling across America in our truck and fifth wheel — chasing national parks, small towns, and whatever adventure shows up next.
+        </p>
+      </div>
+      <img src="rig.png" class="rig-img">
+    </div>
+
+    <div class="links-section">
+      <a href="https://www.youtube.com/@HitchedUp4Life" class="link-card" target="_blank">
+        <div class="social-icon youtube-icon">▶</div>
+        <p>Watch the drives, campground stops, full travel days, and real behind-the-scenes family life on the road.</p>
+      </a>
+
+      <a href="https://www.instagram.com/hitchedup4life/" class="link-card" target="_blank">
+        <div class="social-icon instagram-icon">◎</div>
+        <p>Quick snapshots, reels, and the everyday moments that don’t always make it into full videos.</p>
+      </a>
+
+      <a href="https://www.facebook.com/people/HitchedUp4Life/61578180429478/" class="link-card" target="_blank">
+        <div class="social-icon facebook-icon">f</div>
+        <p>Follow along with daily updates, stories, lessons learned, and the community side of our journey.</p>
+      </a>
+    </div>
+
+    <div class="about">
+      <h2>About Us</h2>
+      <p>
+        We’re a full-time traveling family figuring it out as we go. What started as an idea turned into a lifestyle — one where school happens on the road, lessons come from real experiences, and every stop has something to teach.
+      </p>
+      <p>
+        It’s not always smooth. Plans change, things break, and we adjust on the fly. But that’s part of it. This isn’t polished influencer life — it’s real travel, real family, and real stories from the road.
+      </p>
+    </div>
+
+    <div class="newsletter">
+      <h2>Stay Hitched Up</h2>
+      <p>Real updates. No spam.</p>
+      <input placeholder="Your email">
+      <button>Join the crew</button>
+    </div>
+
+    <footer>
+      © HitchedUp4Life
+    </footer>
+
   </div>
-  <img src="rig.png" class="rig-img">
-</div>
-
-<!-- SOCIALS -->
-
-<div class="links-section">
-
-  <a href="https://www.youtube.com/@HitchedUp4Life" class="link-card youtube" target="_blank">
-    <div class="icon">▶</div>
-    <h3>YouTube</h3>
-    <p>Videos, drives, and adventures</p>
-  </a>
-
-  <a href="https://www.instagram.com/hitchedup4life/" class="link-card instagram" target="_blank">
-    <div class="icon">◎</div>
-    <h3>Instagram</h3>
-    <p>Photos, reels, and moments</p>
-  </a>
-
-  <a href="https://www.facebook.com/people/HitchedUp4Life/61578180429478/" class="link-card facebook" target="_blank">
-    <div class="icon">f</div>
-    <h3>Facebook</h3>
-    <p>Daily updates and community</p>
-  </a>
-
-</div>
-
-<!-- NEWSLETTER -->
-
-<div class="newsletter">
-  <h2>Stay Hitched Up</h2>
-  <p>Real updates. No spam.</p>
-
-  <!-- Replace later with MailerLite -->
-  <input placeholder="Your email">
-  <button>Join the crew</button>
-</div>
-
-<footer>
-© HitchedUp4Life
-</footer>
-
-</div>
 </body>
 </html>
