@@ -74,3 +74,37 @@ footer{margin-top:auto;color:#fff;text-align:center;padding:24px 0;opacity:.9}
 .form input{width:100%;padding:10px;border:1px solid #ddd;border-radius:10px;font-size:1rem}
 
 .center{text-align:center}
+
+
+.shop-hero,
+.newsletter-intro{max-width:720px;margin:0 auto 8px}
+.shop-hero h2,
+.newsletter-intro h2{font-size:clamp(1.9rem,4vw,3rem);line-height:1.05;margin:10px 0;color:var(--accent)}
+.primary-btn{background:var(--accent);color:#fff}
+.primary-btn:hover{background:#9f3900;color:#fff}
+
+.product-grid{align-items:stretch}
+.product-card{display:flex;flex-direction:column;min-height:100%;overflow:hidden;padding:0}
+.product-image-link{display:block;background:#fff6ef;text-decoration:none}
+.product-image{display:block;width:100%;aspect-ratio:1 / 1;object-fit:cover;border-radius:14px 14px 0 0}
+.product-content{display:flex;flex-direction:column;flex:1;padding:16px}
+.product-content h3{margin:8px 0 10px;line-height:1.25}
+.product-price{font-weight:900;font-size:1.1rem;color:var(--ink);margin-bottom:4px}
+.product-content p:last-child{margin-top:auto;margin-bottom:0}
+.newsletter-page{max-width:720px}
+.signup-form{max-width:520px;margin:20px auto 0;background:#fff;border:1px solid #eee;border-radius:14px;padding:18px;text-align:left}
+.signup-form label{display:block;font-weight:bold;margin:0 0 8px}
+.signup-form input[type="email"]{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font-size:1rem;margin-bottom:16px}
+.check-row{display:flex!important;align-items:flex-start;gap:10px;font-weight:normal!important;margin:0 0 16px!important}
+.check-row input{margin-top:5px}
+.recaptcha-wrap{margin:0 0 16px;min-height:78px;overflow:hidden}
+.signup-button{width:100%;text-align:center;cursor:pointer;font-size:1rem}
+.callout a{color:var(--accent);font-weight:bold}
+@media (max-width:480px){.recaptcha-wrap{transform:scale(.86);transform-origin:0 0;margin-bottom:4px}.signup-form{padding:14px}}
+
+
+.etsy-feature{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:24px;background:#fff;border:1px solid #eee;border-radius:14px;padding:18px;text-align:left}
+.etsy-feature h3{color:var(--accent);font-size:1.5rem;margin:8px 0}
+.etsy-feature p{margin:0}
+.etsy-feature .btn{white-space:nowrap}
+@media (max-width:680px){.etsy-feature{display:block;text-align:center}.etsy-feature .btn{margin-top:14px;white-space:normal}}

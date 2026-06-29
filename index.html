@@ -230,6 +230,29 @@
       display: block;
     }
 
+    .newsletter-link {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: var(--orange);
+      color: white;
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-link.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.45);
+      margin-bottom: 0;
+    }
+
     footer {
       text-align: center;
       margin-top: 28px;
@@ -306,12 +329,8 @@
       </div>
 
       <div class="form-box">
-        <form action="https://formspree.io/f/xpqbwrnk" method="POST">
-          <input type="email" name="email" placeholder="Your email address" required>
-          <input type="hidden" name="_subject" value="New HitchedUp4Life newsletter signup">
-          <input type="hidden" name="message" value="Newsletter signup from HitchedUp4Life.com">
-          <button type="submit">Join the crew</button>
-        </form>
+        <a class="newsletter-link" href="newsletter.html">Join the newsletter</a>
+        <a class="newsletter-link secondary" href="gear.html">Shop our Etsy products</a>
       </div>
     </section>
 
